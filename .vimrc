@@ -34,7 +34,6 @@ Plugin 'honza/vim-snippets'  " used by vim-snipmate
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set number
 set ts=4
 set shiftwidth=4
 set noexpandtab
