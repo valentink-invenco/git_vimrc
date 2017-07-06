@@ -24,6 +24,8 @@ Plugin 'xolox/vim-misc'
 
 Plugin 'kergoth/vim-bitbake'
 
+Plugin 'tpope/vim-fugitive'
+
 Plugin 'tomtom/tlib_vim'  " required by vim-snipmate
 
 Plugin 'MarcWeber/vim-addon-mw-utils'  " required by vim-snipmate
