@@ -12,7 +12,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'majutsushi/tagbar'
 
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+
+Plugin 'junegunn/fzf'
 
 Plugin 'flazz/vim-colorschemes'
 
@@ -40,8 +42,8 @@ set noexpandtab
 
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
-set tags=tags;
-let g:easytags_dynamic_files = 1
+set tags=./tags;
+let g:easytags_dynamic_files = 2
 
 colorscheme up
 
@@ -54,14 +56,15 @@ let g:easytags_async = 1
 " ignore common files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 
-" start CtrlP in the same where the vim has been started
-let g:ctrlp_working_path_mode = 'w'
-
-" ignore pattersn for CtrlP
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|CMakeFiles)$',
-  \ 'file': '\v\.(exe|so|dll|o)$',
-  \ }
+nmap <C-p> :FZF<CR>
+""" start CtrlP in the same where the vim has been started
+""let g:ctrlp_working_path_mode = 'rw'
+""
+""" ignore pattersn for CtrlP
+""let g:ctrlp_custom_ignore = {
+""  \ 'dir':  '\v[\/]\.(git|hg|svn|CMakeFiles)$',
+""  \ 'file': '\v\.(exe|so|dll|o)$',
+""  \ }
 
 " Show status line and the current file name
 set laststatus=2
