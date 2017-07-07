@@ -42,12 +42,15 @@ set ts=4
 set shiftwidth=4
 set noexpandtab
 
+" Extend fugitive plugin commands
+command Greview :Git! diff --staged
+
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
 set tags=./tags;
 let g:easytags_dynamic_files = 2
 
-colorscheme up
+colorscheme cobalt
 
 " vim-snippets
 let g:snips_author = 'valentink'
