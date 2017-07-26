@@ -30,6 +30,9 @@ Plugin 'garbas/vim-snipmate'
 
 Plugin 'honza/vim-snippets'  " used by vim-snipmate
 
+" easytags replacement with support for Universal Ctags
+Plugin 'ludovicchabant/vim-gutentags'
+
 Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
 
 " All of your Plugins must be added before the following line
