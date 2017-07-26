@@ -34,6 +34,8 @@ Plugin 'garbas/vim-snipmate'
 
 Plugin 'honza/vim-snippets'  " used by vim-snipmate
 
+Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,6 +56,12 @@ let g:snips_author = 'valentink'
 
 " async update for easytags
 let g:easytags_async = 1
+
+" ignore the different version of Universal Ctgas
+let g:easytags_suppress_ctags_warning = 1
+
+" Global YCM Config
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " ignore common files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
