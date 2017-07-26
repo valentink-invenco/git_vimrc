@@ -18,10 +18,6 @@ Plugin 'junegunn/fzf'
 
 Plugin 'flazz/vim-colorschemes'
 
-Plugin 'xolox/vim-easytags'
-
-Plugin 'xolox/vim-misc'
-
 Plugin 'kergoth/vim-bitbake'
 
 Plugin 'tpope/vim-fugitive'
@@ -47,18 +43,11 @@ set noexpandtab
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
 set tags=./tags;
-let g:easytags_dynamic_files = 2
 
 colorscheme up
 
 " vim-snippets
 let g:snips_author = 'valentink'
-
-" async update for easytags
-let g:easytags_async = 1
-
-" ignore the different version of Universal Ctgas
-let g:easytags_suppress_ctags_warning = 1
 
 " Global YCM Config
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
