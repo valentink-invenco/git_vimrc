@@ -95,3 +95,6 @@ set autoread
 
 " highlight all search matches
 set hlsearch
+
+" start searching when typing
+set incsearch
