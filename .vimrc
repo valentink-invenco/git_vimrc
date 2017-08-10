@@ -18,10 +18,6 @@ Plugin 'junegunn/fzf'
 
 Plugin 'flazz/vim-colorschemes'
 
-Plugin 'xolox/vim-easytags'
-
-Plugin 'xolox/vim-misc'
-
 Plugin 'kergoth/vim-bitbake'
 
 Plugin 'tpope/vim-fugitive'
@@ -33,6 +29,11 @@ Plugin 'MarcWeber/vim-addon-mw-utils'  " required by vim-snipmate
 Plugin 'garbas/vim-snipmate'
 
 Plugin 'honza/vim-snippets'  " used by vim-snipmate
+
+" easytags replacement with support for Universal Ctags
+Plugin 'ludovicchabant/vim-gutentags'
+
+Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,15 +49,14 @@ command Greview :Git! diff --staged
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
 set tags=./tags;
-let g:easytags_dynamic_files = 2
 
 colorscheme cobalt
 
 " vim-snippets
 let g:snips_author = 'valentink'
 
-" async update for easytags
-let g:easytags_async = 1
+" Global YCM Config
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " ignore common files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
@@ -95,3 +95,6 @@ set autoread
 
 " highlight all search matches
 set hlsearch
+
+" start searching when typing
+set incsearch
