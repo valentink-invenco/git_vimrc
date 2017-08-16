@@ -35,6 +35,8 @@ Plugin 'ludovicchabant/vim-gutentags'
 
 Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
 
+Plugin 'mileszs/ack.vim' " alternative file contents search
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,6 +51,10 @@ command Greview :Git! diff --staged
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
 set tags=./tags;
+
+" ack
+let g:ackprg = 'ag --vimgrep'
+let g:ackhighlight = 1
 
 colorscheme cobalt
 
