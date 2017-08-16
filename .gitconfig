@@ -1,6 +1,6 @@
 [user]
 	email = valentin.kroupkin@invenco.com
-	name = valentink
+	name = Valentin Kroupkin
 [log]
 	date = relative
 [format]
@@ -16,3 +16,4 @@
 [core]
 	excludesfile = /home/valentink/.gitignore
 	mergeoptions = --no-edit
+	editor = vim
