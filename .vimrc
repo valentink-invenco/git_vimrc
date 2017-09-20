@@ -37,6 +37,8 @@ Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
 
 Plugin 'mileszs/ack.vim' " alternative file contents search
 
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -44,6 +46,9 @@ filetype plugin indent on    " required
 set ts=4
 set shiftwidth=4
 set noexpandtab
+
+" vim-cpp-enhanced-highlight - Highlith member vars
+let g:cpp_member_variable_highlight = 1
 
 " Extend fugitive plugin commands
 command Greview :Git! diff --staged
@@ -56,13 +61,17 @@ set tags=./tags;
 let g:ackprg = 'ag --vimgrep'
 let g:ackhighlight = 1
 
-colorscheme cobalt
+colorscheme ego
+syntax on
 
 " vim-snippets
 let g:snips_author = 'valentink'
 
 " Global YCM Config
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+" Don't ask for loading the local ycm conf
+let g:ycm_confirm_extra_conf = 0
 
 " ignore common files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
