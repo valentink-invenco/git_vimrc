@@ -18,3 +18,5 @@
 	mergeoptions = --no-edit
 	editor = vim
 	pager = less -x1,5
+[diff]
+	submodule = log
