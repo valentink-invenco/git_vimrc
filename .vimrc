@@ -61,7 +61,7 @@ set tags=./tags;
 let g:ackprg = 'ag --vimgrep'
 let g:ackhighlight = 1
 
-colorscheme 256-jungle
+colorscheme ego
 syntax on
 
 " vim-snippets
