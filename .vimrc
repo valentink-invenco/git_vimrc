@@ -12,9 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'majutsushi/tagbar'
 
-"Plugin 'kien/ctrlp.vim'
-
-Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 Plugin 'flazz/vim-colorschemes'
 
@@ -37,7 +36,7 @@ Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
 
 Plugin 'mileszs/ack.vim' " alternative file contents search
 
-Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,7 +60,11 @@ set tags=./tags;
 let g:ackprg = 'ag --vimgrep'
 let g:ackhighlight = 1
 
-colorscheme ego
+"colorscheme ego
+colorscheme gruvbox
+"colorscheme jellybeans
+"colorscheme molokai  " bad parenthesis matching
+" colorscheme stingray
 syntax on
 
 " vim-snippets
@@ -113,3 +116,12 @@ set hlsearch
 
 " start searching when typing
 set incsearch
+
+" fix Backspace key
+set backspace=indent,eol,start
+
+" cursor shapes: IBeam shape in insert mode,
+" underline shape in replace mode and block shape in normal mode
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
