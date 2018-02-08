@@ -36,7 +36,7 @@ Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
 
 Plugin 'mileszs/ack.vim' " alternative file contents search
 
-" Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +50,7 @@ set noexpandtab
 let g:cpp_member_variable_highlight = 1
 
 " Extend fugitive plugin commands
-command Greview :Git! diff --staged
+command! Greview :Git! diff --staged
 
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
@@ -61,10 +61,11 @@ let g:ackprg = 'ag --vimgrep'
 let g:ackhighlight = 1
 
 "colorscheme ego
-colorscheme gruvbox
+" colorscheme gruvbox
 "colorscheme jellybeans
 "colorscheme molokai  " bad parenthesis matching
 " colorscheme stingray
+colorscheme Monokai
 syntax on
 
 " vim-snippets
@@ -75,6 +76,7 @@ let g:snips_author = 'valentink'
 
 " Don't ask for loading the local ycm conf
 let g:ycm_confirm_extra_conf = 0
+set completeopt-=preview
 
 " ignore common files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
@@ -125,3 +127,14 @@ set backspace=indent,eol,start
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
+
+" sets 'path' to:
+" " - the directory of the current file
+" - every subdirectory of the "current directory"
+set path=.,**
+
+" enables the wildmenu
+set wildmenu
+
+" case-insensitive search
+set wildignorecase
