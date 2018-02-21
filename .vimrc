@@ -61,15 +61,18 @@ let g:ackprg = 'ag --vimgrep'
 let g:ackhighlight = 1
 
 "colorscheme ego
-" colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme jellybeans
 "colorscheme molokai  " bad parenthesis matching
-" colorscheme stingray
-colorscheme Monokai
+"colorscheme stingray
+"colorscheme Monokai " search results only underlined
+colorscheme apprentice
 syntax on
 
 " vim-snippets
 let g:snips_author = 'valentink'
+imap <C-J> <Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
 
 " Global YCM Config
 "let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
@@ -77,19 +80,20 @@ let g:snips_author = 'valentink'
 " Don't ask for loading the local ycm conf
 let g:ycm_confirm_extra_conf = 0
 set completeopt-=preview
+nnoremap ,gl :YcmCompleter GoToDeclaration<CR>
+nnoremap ,gf :YcmCompleter GoToDefinition<CR>
+nnoremap ,gi :YcmCompleter GoToInclude<CR>
+" Apply YCM FixIt
+map <F9> :YcmCompleter FixIt<CR>
 
 " ignore common files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 
+" fzf
 nmap <C-p> :FZF<CR>
-""" start CtrlP in the same where the vim has been started
-""let g:ctrlp_working_path_mode = 'rw'
-""
-""" ignore pattersn for CtrlP
-""let g:ctrlp_custom_ignore = {
-""  \ 'dir':  '\v[\/]\.(git|hg|svn|CMakeFiles)$',
-""  \ 'file': '\v\.(exe|so|dll|o)$',
-""  \ }
+nnoremap <silent> <Leader><Enter>  :Buffers<CR>
+nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Show status line and the current file name
 set laststatus=2
