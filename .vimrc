@@ -68,6 +68,9 @@ let g:ackhighlight = 1
 "colorscheme Monokai " search results only underlined
 colorscheme apprentice
 syntax on
+set background=dark
+set t_Co=256  " Force 256 colors (helps on tmux)
+set cursorline  " highlight the current line
 
 " vim-snippets
 let g:snips_author = 'valentink'
