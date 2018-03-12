@@ -96,7 +96,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 nmap <C-p> :FZF<CR>
 nnoremap <silent> <Leader><Enter>  :Buffers<CR>
 nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'fd --type file'
 
 " Show status line and the current file name
 set laststatus=2
