@@ -62,11 +62,11 @@ let g:ackhighlight = 1
 
 "colorscheme ego
 "colorscheme gruvbox
-"colorscheme jellybeans
+colorscheme jellybeans
 "colorscheme molokai  " bad parenthesis matching
 "colorscheme stingray
 "colorscheme Monokai " search results only underlined
-colorscheme apprentice
+"colorscheme apprentice
 syntax on
 set background=dark
 set t_Co=256  " Force 256 colors (helps on tmux)
@@ -106,6 +106,8 @@ set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 " Show line numbers
 set number
 
+" Mouse when run in tmux
+set ttymouse=xterm2
 set mouse=a
 
 " autosave all files on focus lost
