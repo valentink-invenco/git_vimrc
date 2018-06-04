@@ -57,7 +57,8 @@ nmap <F8> :TagbarToggle<CR>
 set tags=./tags;
 
 " ack
-let g:ackprg = 'ag --vimgrep'
+"let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
 let g:ackhighlight = 1
 
 "colorscheme ego
@@ -126,7 +127,10 @@ set hidden
 set autoread
 
 " highlight all search matches
+" it should be applied after colorscheme
 set hlsearch
+hi Search ctermbg=Yellow
+hi Search ctermfg=Red
 
 " start searching when typing
 set incsearch
