@@ -32,7 +32,7 @@ Plugin 'honza/vim-snippets'  " used by vim-snipmate
 " easytags replacement with support for Universal Ctags
 Plugin 'ludovicchabant/vim-gutentags'
 
-Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
+"Plugin 'git@github.com:Valloric/YouCompleteMe.git'  " YCM
 
 Plugin 'mileszs/ack.vim' " alternative file contents search
 
@@ -98,9 +98,16 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 " fzf
 nmap <C-p> :FZF<CR>
 nnoremap <silent> <Leader><Enter>  :Buffers<CR>
-nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>rg       :Rg <C-R><C-W><CR>
 "let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let $FZF_DEFAULT_COMMAND = 'fd --type file'
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Show status line and the current file name
 set laststatus=2
@@ -116,6 +123,12 @@ set mouse=a
 " autosave all files on focus lost
 :au FocusLost * silent! wa
 set hidden
+
+" save the file when switch buffers, make it etc.
+set autowriteall
+
+" disable swap files
+set noswapfile
 
 " setup shortcut to perform 'increase number' operation
 :noremap <F3> <C-A>
