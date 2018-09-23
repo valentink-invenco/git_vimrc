@@ -167,3 +167,7 @@ set wildmenu
 
 " case-insensitive search
 set wildignorecase
+
+" Enable per project .vimrc
+set secure
+set exrc
