@@ -121,8 +121,8 @@ set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 " clang-format
 let g:clang_format#command="clang-format-6.0"
 
-" Show line numbers
-set number
+" Show relative line numbers
+set relativenumber
 
 " Mouse when run in tmux
 set ttymouse=xterm2
