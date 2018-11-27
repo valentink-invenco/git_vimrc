@@ -38,6 +38,11 @@ Plugin 'mileszs/ack.vim' " alternative file contents search
 
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
+Plugin 'itchyny/lightline.vim'
+"Plugin 'liuchengxu/eleline.vim'
+
+Plugin 'rhysd/vim-clang-format'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -112,6 +117,9 @@ command! -bang -nargs=* Rg
 " Show status line and the current file name
 set laststatus=2
 set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+
+" clang-format
+let g:clang_format#command="clang-format-6.0"
 
 " Show line numbers
 set number
