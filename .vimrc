@@ -21,13 +21,13 @@ Plugin 'kergoth/vim-bitbake'
 
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'tomtom/tlib_vim'  " required by vim-snipmate
+"Plugin 'tomtom/tlib_vim'  " required by vim-snipmate
 
-Plugin 'MarcWeber/vim-addon-mw-utils'  " required by vim-snipmate
+"Plugin 'MarcWeber/vim-addon-mw-utils'  " required by vim-snipmate
 
-Plugin 'garbas/vim-snipmate'
+"Plugin 'garbas/vim-snipmate'
 
-Plugin 'honza/vim-snippets'  " used by vim-snipmate
+"Plugin 'honza/vim-snippets'  " used by vim-snipmate
 
 " easytags replacement with support for Universal Ctags
 Plugin 'ludovicchabant/vim-gutentags'
