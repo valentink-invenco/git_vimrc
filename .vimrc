@@ -116,7 +116,7 @@ command! -bang -nargs=* Rg
 
 " Show status line and the current file name
 set laststatus=2
-set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+set statusline="%f%m%r%h%w [%Y]  [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 
 " clang-format
 let g:clang_format#command="clang-format-6.0"
@@ -175,6 +175,7 @@ set wildmenu
 
 " case-insensitive search
 set wildignorecase
+set ignorecase
 
 " Enable per project .vimrc
 set secure
