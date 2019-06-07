@@ -1,3 +1,5 @@
+source /home/valentink/miniconda3/etc/profile.d/conda.sh
+
 # Frequently used dirs
 export CDPATH=.:~:~/src
 
