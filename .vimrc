@@ -106,23 +106,33 @@ nnoremap <silent> <Leader><Enter>  :Buffers<CR>
 nnoremap <silent> <Leader>rg       :Rg <C-R><C-W><CR>
 "let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let $FZF_DEFAULT_COMMAND = 'fd --type file'
-" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
+"" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+"command! -bang -nargs=* Rg
+"  \ call fzf#vim#grep(
+"  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+"  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+"  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+"  \   <bang>0)
 " Show status line and the current file name
 set laststatus=2
-set statusline="%f%m%r%h%w [%Y]  [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+set statusline="%{FugitiveStatusline()}  %f%m%r%h%w [%Y]  [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+
+let g:lightline = {
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'gitbranch': 'fugitive#head'
+	\ },
+	\ }
 
 " clang-format
 let g:clang_format#command="clang-format-6.0"
 
 " Show relative line numbers
-set relativenumber
+"set relativenumber
+set number
 
 " Mouse when run in tmux
 set ttymouse=xterm2
