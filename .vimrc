@@ -113,6 +113,8 @@ let $FZF_DEFAULT_COMMAND = 'fd --type file'
 "  \   <bang>0 ? fzf#vim#with_preview('up:60%')
 "  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
 "  \   <bang>0)
+" fzf pop-up window setup
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'rounded': v:false } }
 " Show status line and the current file name
 set laststatus=2
 set statusline="%{FugitiveStatusline()}  %f%m%r%h%w [%Y]  [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
