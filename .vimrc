@@ -49,7 +49,8 @@ filetype plugin indent on    " required
 
 set ts=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
+set ai
 
 " vim-cpp-enhanced-highlight - Highlith member vars
 let g:cpp_member_variable_highlight = 1
@@ -65,6 +66,7 @@ set tags=./tags;
 "let g:ackprg = 'ag --vimgrep'
 let g:ackprg = 'rg --vimgrep'
 let g:ackhighlight = 1
+nnoremap <silent> <Leader>ack       :Ack <C-R><C-W><CR>
 
 "colorscheme ego
 "colorscheme gruvbox
@@ -114,7 +116,7 @@ let $FZF_DEFAULT_COMMAND = 'fd --type file'
 "  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
 "  \   <bang>0)
 " fzf pop-up window setup
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'rounded': v:false } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7, 'rounded': v:true } }
 " Show status line and the current file name
 set laststatus=2
 set statusline="%{FugitiveStatusline()}  %f%m%r%h%w [%Y]  [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
