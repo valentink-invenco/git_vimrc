@@ -111,6 +111,7 @@ nnoremap <silent> <Leader><Enter>  :Buffers<CR>
 nnoremap <silent> <Leader>rg       :Rg <C-R><C-W><CR>
 "let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let $FZF_DEFAULT_COMMAND = 'fd --type file'
+
 "" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
 "command! -bang -nargs=* Rg
 "  \ call fzf#vim#grep(
@@ -119,10 +120,12 @@ let $FZF_DEFAULT_COMMAND = 'fd --type file'
 "  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
 "  \   <bang>0)
 " fzf pop-up window setup
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7, 'rounded': v:true } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'rounded': v:true } }
+"let g:fzf_preview_window = 'right:40%'
+"let g:fzf_preview_window = ''
+"let g:fzf_action = { 'ctrl-e': 'toggle-preview-wrap' }
 " Show status line and the current file name
 set laststatus=2
-set statusline="%{FugitiveStatusline()}  %f%m%r%h%w [%Y]  [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 
 let g:lightline = {
 	\ 'active': {
