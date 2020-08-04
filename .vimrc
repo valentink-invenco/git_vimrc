@@ -20,7 +20,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'kergoth/vim-bitbake'
 
 Plugin 'tpope/vim-fugitive'
-
+Plugin 'shumphrey/fugitive-gitlab.vim'
 "Plugin 'tomtom/tlib_vim'  " required by vim-snipmate
 
 "Plugin 'MarcWeber/vim-addon-mw-utils'  " required by vim-snipmate
@@ -57,6 +57,9 @@ let g:cpp_member_variable_highlight = 1
 
 " Extend fugitive plugin commands
 command! Greview :Git! diff --staged
+
+" Enable GitLab in fugitive :GBrowse
+let g:fugitive_gitlab_domains = ['https://git.invencolabs.com']
 
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
