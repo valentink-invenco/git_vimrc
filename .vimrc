@@ -63,6 +63,7 @@ let g:fugitive_gitlab_domains = ['https://git.invencolabs.com']
 
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_position = 'left'
 set tags=./tags;
 
 " ack
