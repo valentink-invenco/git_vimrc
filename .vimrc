@@ -19,6 +19,7 @@ Plugin 'flazz/vim-colorschemes'
 
 Plugin 'kergoth/vim-bitbake'
 
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'shumphrey/fugitive-gitlab.vim'
 "Plugin 'tomtom/tlib_vim'  " required by vim-snipmate
@@ -43,6 +44,8 @@ Plugin 'itchyny/lightline.vim'
 
 Plugin 'rhysd/vim-clang-format'
 
+Plugin 'dense-analysis/ale'
+Plugin 'rust-lang/rust.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,6 +54,22 @@ set ts=4
 set shiftwidth=4
 set expandtab
 set ai
+
+" Set gutentag to go scan only the same files as rg
+let g:gutentags_file_list_command = 'rg --files'
+
+" ALE configurations
+let g:ale_cpp_cc_options = '-std=c++11 -Wall'
+let g:ale_linters = {'rust': ['analyzer', 'rls']}
+let g:ale_rust_cargo_check_tests = 1
+set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+nmap <silent> <F12> :ALEGoToDefinition<CR>
+let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'rust': ['rustfmt'],
+\}
 
 " vim-cpp-enhanced-highlight - Highlith member vars
 let g:cpp_member_variable_highlight = 1
@@ -86,22 +105,22 @@ set t_Co=256  " Force 256 colors (helps on tmux)
 " commented in as it slows down j/h motion
 "set cursorline  " highlight the current line
 
-" vim-snippets
-let g:snips_author = 'valentink'
-imap <C-J> <Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
+"" vim-snippets
+"let g:snips_author = 'valentink'
+"imap <C-J> <Plug>snipMateNextOrTrigger
+"smap <C-J> <Plug>snipMateNextOrTrigger
 
 " Global YCM Config
 "let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
-" Don't ask for loading the local ycm conf
-let g:ycm_confirm_extra_conf = 0
-set completeopt-=preview
-nnoremap ,gl :YcmCompleter GoToDeclaration<CR>
-nnoremap ,gf :YcmCompleter GoToDefinition<CR>
-nnoremap ,gi :YcmCompleter GoToInclude<CR>
-" Apply YCM FixIt
-map <F9> :YcmCompleter FixIt<CR>
+"" Don't ask for loading the local ycm conf
+"let g:ycm_confirm_extra_conf = 0
+"set completeopt-=preview
+"nnoremap ,gl :YcmCompleter GoToDeclaration<CR>
+"nnoremap ,gf :YcmCompleter GoToDefinition<CR>
+"nnoremap ,gi :YcmCompleter GoToInclude<CR>
+"" Apply YCM FixIt
+"map <F9> :YcmCompleter FixIt<CR>
 
 " ignore common files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
@@ -113,18 +132,14 @@ nnoremap <silent> <Leader>rg       :Rg <C-R><C-W><CR>
 "let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let $FZF_DEFAULT_COMMAND = 'fd --type file'
 
-"" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
-"command! -bang -nargs=* Rg
-"  \ call fzf#vim#grep(
-"  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-"  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-"  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-"  \   <bang>0)
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   "rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview('right', 'Ctrl-/'), <bang>0)
 " fzf pop-up window setup
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8, 'rounded': v:true } }
-"let g:fzf_preview_window = 'right:40%'
-"let g:fzf_preview_window = ''
-"let g:fzf_action = { 'ctrl-e': 'toggle-preview-wrap' }
+let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.9, 'rounded': v:true } }
+let g:fzf_action = { 'ctrl-v': 'vsplit' }
 " Show status line and the current file name
 set laststatus=2
 
@@ -140,6 +155,9 @@ let g:lightline = {
 
 " clang-format
 let g:clang_format#command="clang-format-6.0"
+
+" yaml format
+autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
 
 " Show relative line numbers
 "set relativenumber
@@ -197,6 +215,12 @@ set wildmenu
 " case-insensitive search
 set wildignorecase
 set ignorecase
+
+" Ignore vim temp file types in netrw
+let g:netrw_list_hide='.*\.swp,'
+let g:netrw_list_hide.='\.git,'
+let g:netrw_list_hide.='\.o,\.obj,\.pyc,'
+let g:netrw_list_hide.='\..*\.un\~'
 
 " Enable per project .vimrc
 set secure

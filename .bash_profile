@@ -1,4 +1,5 @@
 source /home/valentink/miniconda3/etc/profile.d/conda.sh
 
-# Auto-correct typos in 'cd'
-shopt -s cdspell
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$HOME/.cargo/bin:$PATH"
